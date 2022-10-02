@@ -25,9 +25,7 @@ export class KeycloakGuard extends KeycloakAuthGuard {
     // set token on localStorage as 'token'
     localStorage.setItem('token', this.token?.__zone_symbol__value);
     // set token on BehaviorSubject as currentToken
-    this._appInfoService.currentToken.next(
-      `${this.token?.__zone_symbol__value}`
-    );
+    this._appInfoService.currentToken.next(this.token?.__zone_symbol__value);
   }
 
   public async isAccessAllowed(

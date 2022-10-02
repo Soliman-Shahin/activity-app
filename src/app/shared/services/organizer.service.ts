@@ -1,3 +1,4 @@
+import { AppInfoService } from './app-info.service';
 import { Injectable } from '@angular/core';
 import { from, Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
@@ -18,7 +19,14 @@ let nuxeo = new Nuxeo({
   providedIn: 'root',
 })
 export class OrganizerService {
-  constructor() {}
+  token: any;
+
+  constructor(private _appInfoService: AppInfoService) {
+    this._appInfoService.currentToken.subscribe(() => {
+      this.token = this._appInfoService.currentToken.getValue();
+      nuxeo._auth.token = this.token;
+    });
+  }
 
   // get organizers
   getAllOrganizers(): Observable<any> {

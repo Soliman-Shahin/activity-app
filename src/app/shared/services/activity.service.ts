@@ -25,7 +25,7 @@ export class ActivityService {
   constructor(private _appInfoService: AppInfoService) {
     this._appInfoService.currentToken.subscribe(() => {
       this.token = this._appInfoService.currentToken.getValue();
-      console.log('token:', this.token);
+      nuxeo._auth.token = this.token;
     });
   }
 
