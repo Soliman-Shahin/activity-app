@@ -1,0 +1,37 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-3 p-4">
+            <h6 class="mb-5 key-text"> {{'ACTIVITY.ACTIVITY_TITLE' | translate}}: <span class="value-text">{{activity[0]?.title}}</span></h6>
+            <h6 class="mb-5 key-text">{{'ACTIVITY.END_DATE' | translate}}: <span class="value-text">{{activity[0]?.endDate |
+          date}}</span></h6>
+            <h6 class="mb-5 key-text">{{'ACTIVITY.CREATOR' | translate}}: <span class="value-text">{{activity[0]?.creator}}</span></h6>
+            <h6 class="mb-5 key-text">{{'ACTIVITY.DESCRIPTION' | translate}}: <span class="value-text">{{activity[0]?.description}}</span></h6>
+        </div>
+
+        <div class="col-md-3 p-4">
+            <h6 class="mb-5 key-text">{{'ACTIVITY.CREATED_AT' | translate}}: <span class="value-text">{{activity[0]?.created |
+          date}}</span></h6>
+            <h6 class="mb-5 key-text">{{'ACTIVITY.FROM' | translate}}: <span class="value-text">{{activity[0]?.timeFrom}}</span></h6>
+            <h6 class="mb-5 key-text">{{'ACTIVITY.CATEGORIZATION' | translate}}: <span class="value-text">{{activity[0]?.categorization}}</span></h6>
+        </div>
+
+        <div class="col-md-3 p-4">
+            <h6 class="mb-5 key-text">{{'ACTIVITY.START_DATE' | translate}}: <span class="value-text">{{activity[0]?.startDate
+          | date}}</span></h6>
+            <h6 class="mb-5 key-text">{{'ACTIVITY.TO' | translate}}: <span class="value-text">{{activity[0]?.timeTo}}</span>
+            </h6>
+            <h6 class="mb-5 key-text">{{'ACTIVITY.LOCATIONS' | translate}} : <span class="value-text">{{activity[0]?.locations}}</span></h6>
+            <button class="btn btn-primary rounded-pill px-4">{{'ACTIVITY.VIEW_ORGANIZERS' | translate}}</button>
+        </div>
+    </div>
+
+    <div class="row bg-light">
+        <div *ngIf="images !== ''" class="col-md-12" style="height: 100%; width: 100%;">
+            <img class="m-1" *ngFor="let image of images" [src]="image" width="24%" height="200px">
+        </div>
+
+        <div *ngIf="images == ''" class="col-md-12 pt-5 pb-5" style="height: 100%; width: 100%; text-align: center;">
+            <img class="mt-5 mb-5" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGjXxt6MkBhjRXk_PWMSNRcKlquaioO-h_Nobe08rTMLncfiDDSESm22R_hy2i5cW9pn4&usqp=CAU" width="25%" height="250px">
+        </div>
+    </div>
+</div>

@@ -1,0 +1,88 @@
+<div class="absolute inset-0 flex flex-col min-w-0 overflow-hidden">
+    <!-- Header -->
+    <div class="text-primary flex flex-col ipad-ver:flex-col ipad-hor:flex-col sm:flex-row flex-0 sm:items-center sm:justify-content-between p-6 sm:py-8 ipad-ver:pb-2 ipad-hor:pb-2 sm:px-10 border-b dark:bg-transparent">
+        <div class="flex w-full justify-content-between">
+            <div class="flex-1 min-w-0">
+                <!-- Title -->
+                <div class="mt-2 container-fluid">
+                    <div class="row justify-content-between">
+                        <div class="col-md-2">
+                            <h2 *ngIf="!editMode" class="text-3xl md:text-4xl font-bold tracking-tight leading-7 sm:leading-10 truncate">
+                                {{'ACTIVITY.ACTIVITY_ADD' | translate}}
+                            </h2>
+                            <h2 *ngIf="editMode" class="text-3xl md:text-4xl font-bold tracking-tight leading-7 sm:leading-10 truncate">
+                                {{'ACTIVITY.ACTIVITY_EDIT' | translate}}
+                            </h2>
+                        </div>
+
+                        <div class="col-md-1 mt-3">
+                            <button type="button" class="btn btn-light mb-4" routerLink="/event">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                  class="bi bi-arrow-left-circle" viewBox="0 0 16 16">
+                  <path fill-rule="evenodd"
+                    d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z" />
+                </svg>
+                {{'BACK' | translate}}
+              </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="flex mainContainer gap-x-2 ipad-ver:px-1 ipad-hor:px-1 sm:px-4 sm:py-5 rounded-t-2xl overflow-y-auto">
+        <div class="container">
+            <form [formGroup]="eventForm">
+                <div class="row justify-content-between">
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="title">{{'ACTIVITY.TITLE' | translate}}</label>
+                            <input formControlName="title" type="text" class="form-control" placeholder="{{'ACTIVITY.TITLE' | translate}}" />
+
+                            <label for="description">{{'ACTIVITY.DESCRIPTION' | translate}}</label>
+                            <input formControlName="description" type="text" class="form-control" placeholder="{{'ACTIVITY.DESCRIPTION' | translate}}" />
+
+                            <label for="categorization">{{'ACTIVITY.CATEGORIZATION' | translate}}</label>
+                            <input formControlName="categorization" type="text" class="form-control" placeholder="{{'ACTIVITY.CATEGORIZATION' | translate}}" />
+
+                            <label for="organizers">{{'ACTIVITY.ORGANIZERS' | translate}}</label>
+                            <select formControlName="organizers" class="form-select" id="floatingSelect" aria-label="Floating label select example">
+                <option *ngFor="let item of organizers" [value]="item.id" selected>{{item.title}}</option>
+              </select>
+
+                            <label for="locations">{{'ACTIVITY.LOCATIONS' | translate}}</label>
+                            <input formControlName="locations" type="text" class="form-control" placeholder="{{'ACTIVITY.LOCATIONS' | translate}}" />
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="startDate">{{'ACTIVITY.START_DATE' | translate}}</label>
+                            <input formControlName="startDate" type="date" class="form-control" placeholder="{{'ACTIVITY.START_DATE' | translate}}" />
+
+                            <label for="endDate">{{'ACTIVITY.END_DATE' | translate}}</label>
+                            <input formControlName="endDate" type="date" class="form-control" placeholder="{{'ACTIVITY.END_DATE' | translate}}" />
+
+                            <label for="timeFrom">{{'ACTIVITY.TIME_FROM' | translate}}</label>
+                            <input formControlName="timeFrom" type="time" class="form-control" placeholder="{{'ACTIVITY.TIME_FROM' | translate}}" />
+
+                            <label for="timeTo">{{'ACTIVITY.TIME_TO' | translate}}</label>
+                            <input formControlName="timeTo" type="time" class="form-control" placeholder="{{'ACTIVITY.TIME_TO' | translate}}" />
+
+                            <label for="coverPicture">{{'ACTIVITY.COVER_PICTURE' | translate}}</label>
+                            <input #imgInput hidden="true" type="file" (change)="onAttachFileChange($event)" accept=".png, .jpg, .jpeg" />
+                            <button class="btn btn-primary form-control" (click)="imgInput.click()">{{'ACTIVITY.UPLOAD_COVER_PICTURE'
+                | translate}}</button>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 mt-2">
+                        <button *ngIf="!editMode" class="btn btn-success w-100 form-control" (click)="createActivity()" [disabled]="eventForm.invalid">{{'SAVE' | translate}}</button>
+                        <button *ngIf="editMode" class="btn btn-success w-100 form-control" (click)="updateActivity()" [disabled]="eventForm.invalid">{{'EDIT' | translate}}</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

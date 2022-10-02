@@ -1,0 +1,104 @@
+<div class="absolute inset-0 flex flex-col min-w-0 overflow-hidden">
+    <!-- Header -->
+    <div class="text-primary flex flex-col ipad-ver:flex-col ipad-hor:flex-col sm:flex-row flex-0 sm:items-center sm:justify-content-between p-6 sm:py-8 ipad-ver:pb-2 ipad-hor:pb-2 sm:px-10 border-b dark:bg-transparent">
+        <div class="flex w-full justify-content-between">
+            <div class="flex-1 min-w-0">
+                <!-- Title -->
+                <div class="mt-2 container-fluid">
+                    <div class="row justify-content-between">
+                        <div class="col-md-2">
+                            <h2 *ngIf="!editMode" class="text-3xl md:text-4xl font-bold tracking-tight leading-7 sm:leading-10 truncate">
+                                {{'ORGANIZER.ADD_ORGANIZER' | translate}}
+                            </h2>
+                            <h2 *ngIf="editMode" class="text-3xl md:text-4xl font-bold tracking-tight leading-7 sm:leading-10 truncate">
+                                {{'ORGANIZER.EDIT_ORGANIZER' | translate}}
+                            </h2>
+                        </div>
+
+                        <div class="col-md-1 mt-3">
+                            <button type="button" class="btn btn-light mb-4" routerLink="/organizer">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                  class="bi bi-arrow-left-circle" viewBox="0 0 16 16">
+                  <path fill-rule="evenodd"
+                    d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z" />
+                </svg>
+                {{'BACK' | translate}}
+              </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="flex mainContainer gap-x-2 ipad-ver:px-1 ipad-hor:px-1 sm:px-4 sm:py-5 rounded-t-2xl overflow-y-auto">
+        <div class="container">
+            <form [formGroup]="organizerForm">
+                <div class="row justify-content-between">
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="name">{{'ORGANIZER.TITLE' | translate}}</label>
+                            <input formControlName="name" type="text" class="form-control" placeholder="{{'ORGANIZER.TITLE' | translate}}" />
+
+                            <label for="description">{{'ORGANIZER.DESCRIPTION' | translate}}</label>
+                            <input formControlName="description" type="text" class="form-control" placeholder="{{'ORGANIZER.DESCRIPTION' | translate}}" />
+
+                            <label for="organizationActivity">{{'ORGANIZER.ORGANIZER_ACTIVITY' | translate}}</label>
+                            <input formControlName="organizationActivity" type="text" class="form-control" placeholder="{{'ORGANIZER.ORGANIZER_ACTIVITY' | translate}}" />
+
+                            <label for="website">{{'ORGANIZER.WEBSITE' | translate}}</label>
+                            <input formControlName="website" type="text" class="form-control" placeholder="{{'ORGANIZER.WEBSITE' | translate}}" />
+
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <label for="email_label">{{'LABEL' | translate}}</label>
+                                    <input formControlName="email_label" type="text" class="form-control" placeholder="{{'LABEL' | translate}}" />
+                                </div>
+                                <div class="col-md-8">
+                                    <label for="email">{{'ORGANIZER.EMAIL' | translate}}</label>
+                                    <input formControlName="email" type="text" class="form-control" placeholder="{{'ORGANIZER.EMAIL' | translate}}" />
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <label for="address_label">{{'LABEL' | translate}}</label>
+                                    <input formControlName="address_label" type="text" class="form-control" placeholder="{{'LABEL' | translate}}" />
+                                </div>
+                                <div class="col-md-8">
+                                    <label for="address">{{'ORGANIZER.ADDRESSES' | translate}}</label>
+                                    <input formControlName="address" type="text" class="form-control" placeholder="{{'ORGANIZER.ADDRESSES' | translate}}" />
+                                </div>
+                            </div>
+
+
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <label for="phone_label">{{'LABEL' | translate}}</label>
+                                    <input formControlName="phone_label" type="text" class="form-control" placeholder="{{'LABEL' | translate}}" />
+                                </div>
+                                <div class="col-md-8">
+                                    <label for="phone">{{'ORGANIZER.PHONE_NUMBERS' | translate}}</label>
+                                    <input formControlName="phone" type="text" class="form-control" placeholder="{{'ORGANIZER.PHONE_NUMBERS' | translate}}" />
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 mt-2">
+                        <button *ngIf="!editMode" class="btn btn-success w-100 form-control" (click)="createOrganizer()">{{'SAVE' |
+              translate}}</button>
+                        <button *ngIf="editMode" class="btn btn-success w-100 form-control" (click)="updateOrganizer()" [disabled]="organizerForm.invalid">{{'EDIT' | translate}}</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
