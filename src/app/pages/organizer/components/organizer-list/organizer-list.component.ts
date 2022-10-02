@@ -6,16 +6,7 @@ import {
   MatSnackBarHorizontalPosition,
   MatSnackBarVerticalPosition,
 } from '@angular/material/snack-bar';
-
-export interface Organizer {
-  id: string;
-  title: string;
-  addresses: string;
-  emails: string;
-  phones: string;
-  website: string;
-  activity: string;
-}
+import { Organizer } from '../../models/organizer';
 
 @Component({
   selector: 'app-organizer-list',
@@ -23,9 +14,11 @@ export interface Organizer {
   styleUrls: ['./organizer-list.component.scss'],
 })
 export class OrganizerListComponent implements OnInit {
+  // set snackbar position
   horizontalPosition: MatSnackBarHorizontalPosition = 'right';
   verticalPosition: MatSnackBarVerticalPosition = 'top';
 
+  // table displayed columns
   displayedColumns: string[] = [
     'title',
     'addresses',
@@ -36,9 +29,12 @@ export class OrganizerListComponent implements OnInit {
     'update',
     'delete',
   ];
+
+  // table data source
   dataSource: MatTableDataSource<Organizer> =
     new MatTableDataSource<Organizer>();
 
+  // empty organizers array
   organizers: any = [];
 
   constructor(

@@ -12,9 +12,11 @@ import {
   styleUrls: ['./event-list.component.scss'],
 })
 export class EventListComponent implements OnInit {
+  // set snackbar position
   horizontalPosition: MatSnackBarHorizontalPosition = 'right';
   verticalPosition: MatSnackBarVerticalPosition = 'top';
 
+  // activities empty array
   activities: any = [];
 
   constructor(

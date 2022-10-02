@@ -1,6 +1,5 @@
 import { OrganizerModule } from './pages/organizer/organizer.module';
 import { EventModule } from './pages/event/event.module';
-import { EventListComponent } from './pages/event/components/event-list/event-list.component';
 import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -31,6 +30,7 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 
+// export translate from './assets/i18n/' 'ar.json' and 'en.json'
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient, './assets/i18n/', '.json');
 }
@@ -56,7 +56,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     BrowserModule,
     FormsModule,
     MatSnackBarModule,
-    HttpClientModule, // the change from http module
+    HttpClientModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

@@ -23,8 +23,10 @@ export class ActivityService {
   token: any;
 
   constructor(private _appInfoService: AppInfoService) {
-    this.token = this._appInfoService.currentToken.getValue();
-    console.log('token:', this.token);
+    this._appInfoService.currentToken.subscribe(() => {
+      this.token = this._appInfoService.currentToken.getValue();
+      console.log('token:', this.token);
+    });
   }
 
   // get all activities

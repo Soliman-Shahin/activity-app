@@ -19,9 +19,11 @@ import {
   styleUrls: ['./organizer-add.component.scss'],
 })
 export class OrganizerAddComponent implements OnInit {
+  // set snackbar position
   horizontalPosition: MatSnackBarHorizontalPosition = 'right';
   verticalPosition: MatSnackBarVerticalPosition = 'top';
 
+  // set organizer form
   organizerForm = new FormGroup({
     name: new FormControl(),
     description: new FormControl(),
@@ -35,12 +37,15 @@ export class OrganizerAddComponent implements OnInit {
     website: new FormControl(),
   });
 
+  // set is edit mode default value false
   editMode: boolean = false;
 
   organizerId: any;
 
+  // empty organizer array
   organizer: any = [];
 
+  // empty array for body data
   saveOrganizer: any = [];
 
   constructor(
@@ -50,6 +55,7 @@ export class OrganizerAddComponent implements OnInit {
     private organizerService: OrganizerService,
     private snackBar: MatSnackBar
   ) {
+    // get organizer id from route params
     this.organizerId = this.route.snapshot.params['id'];
   }
 

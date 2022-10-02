@@ -5,7 +5,9 @@ import { Observable, BehaviorSubject } from 'rxjs';
 export class AppInfoService {
   constructor() {}
 
+  // set BehaviorSubject current language arabic
   currentLang = new BehaviorSubject('ar');
+  // set BehaviorSubject current token empty
   currentToken = new BehaviorSubject('');
 
   public get title() {

@@ -20,8 +20,11 @@ export class KeycloakGuard extends KeycloakAuthGuard {
   ) {
     super(router, keycloak);
 
+    // get user token from keycloak
     this.token = this.keycloak.getToken();
+    // set token on localStorage as 'token'
     localStorage.setItem('token', this.token?.__zone_symbol__value);
+    // set token on BehaviorSubject as currentToken
     this._appInfoService.currentToken.next(
       `${this.token?.__zone_symbol__value}`
     );
@@ -31,10 +34,13 @@ export class KeycloakGuard extends KeycloakAuthGuard {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ) {
+    // if user not authenticated
     if (!this.authenticated) {
+      // set arabic 'ar' as a default language on localStorage as 'lang'
       localStorage.setItem('lang', 'ar');
+      // set arabic 'ar' as a default language on BehaviorSubject as currentLang
       this._appInfoService.currentLang.next('ar');
-
+      // redirect user to login page
       await this.keycloak.login({
         redirectUri: window.location.origin + state.url,
       });

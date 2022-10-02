@@ -25,14 +25,18 @@ export class AppComponent {
     private translateService: TranslateService,
     @Inject(DOCUMENT) private document: Document
   ) {
+    // change style dir 'rtl and ltr' for app
     this.appInfo.currentLang.subscribe(() => {
       // const lang = this.appInfo.currentLang.getValue();
+      // get language from localStorage
       const lang = localStorage.getItem('lang');
+      // if language is arabic 'ar' change dir from ltr to rtl and set translate to ar
       if (lang == 'ar') {
         document.getElementsByTagName('html')[0].setAttribute('dir', 'rtl');
         this.renderer.addClass(this.document.body, 'rtl');
         this.renderer.addClass(this.document.body, 'dx-rtl');
         translateService.setDefaultLang('ar');
+        // if language is english 'en' change dir from rtl to ltr and set translate to en
       } else if (lang == 'en') {
         document.getElementsByTagName('html')[0].removeAttribute('dir');
         this.renderer.removeClass(this.document.body, 'rtl');
@@ -42,6 +46,7 @@ export class AppComponent {
     });
   }
 
+  // check if user is authenticated by keycloak
   isAuthenticated() {
     // return this.authService.loggedIn;
     return this._keycloakService.isLoggedIn();

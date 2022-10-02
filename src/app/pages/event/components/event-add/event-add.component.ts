@@ -21,9 +21,11 @@ import {
   styleUrls: ['./event-add.component.scss'],
 })
 export class EventAddComponent implements OnInit {
+  // set snackbar position
   horizontalPosition: MatSnackBarHorizontalPosition = 'right';
   verticalPosition: MatSnackBarVerticalPosition = 'top';
 
+  // activity form
   eventForm = new FormGroup({
     title: new FormControl(),
     description: new FormControl(),
@@ -39,14 +41,19 @@ export class EventAddComponent implements OnInit {
 
   eventId: any;
 
-  editMode = false;
+  // set is edit mode default false
+  editMode: boolean = false;
 
+  // activity empty array
   activity: any = [];
 
+  // empty array for body content
   saveActivity: any = [];
 
+  // organizers empty array
   organizers: any = [];
 
+  // empty array for activity cover picture
   coverPicture: any = [];
 
   constructor(
@@ -57,6 +64,7 @@ export class EventAddComponent implements OnInit {
     private organizerService: OrganizerService,
     private snackBar: MatSnackBar
   ) {
+    // get activity id from route params
     this.eventId = this.route.snapshot.params['id'];
   }
 

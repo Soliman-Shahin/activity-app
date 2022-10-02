@@ -3,9 +3,10 @@
     <div class="text-primary flex flex-col ipad-ver:flex-col ipad-hor:flex-col sm:flex-row flex-0 sm:items-center sm:justify-content-between p-6 sm:py-8 ipad-ver:pb-2 ipad-hor:pb-2 sm:px-10 border-b dark:bg-transparent">
         <div class="flex w-full justify-content-between">
             <div class="flex-1 min-w-0">
-                <!-- Title -->
+
                 <div class="mt-2 container-fluid">
                     <div class="row justify-content-between">
+                        <!-- Title -->
                         <div class="col-md-2">
                             <h2 *ngIf="!editMode" class="text-3xl md:text-4xl font-bold tracking-tight leading-7 sm:leading-10 truncate">
                                 {{'ORGANIZER.ADD_ORGANIZER' | translate}}
@@ -14,7 +15,7 @@
                                 {{'ORGANIZER.EDIT_ORGANIZER' | translate}}
                             </h2>
                         </div>
-
+                        <!-- back button -->
                         <div class="col-md-1 mt-3">
                             <button type="button" class="btn btn-light mb-4" routerLink="/organizer">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -30,6 +31,7 @@
             </div>
         </div>
     </div>
+    <!-- organizer form -->
     <div class="flex mainContainer gap-x-2 ipad-ver:px-1 ipad-hor:px-1 sm:px-4 sm:py-5 rounded-t-2xl overflow-y-auto">
         <div class="container">
             <form [formGroup]="organizerForm">
@@ -93,8 +95,10 @@
                     </div>
 
                     <div class="col-md-12 mt-2">
+                        <!-- save new organizer button -->
                         <button *ngIf="!editMode" class="btn btn-success w-100 form-control" (click)="createOrganizer()">{{'SAVE' |
-              translate}}</button>
+                          translate}}</button>
+                        <!-- edit organizer button -->
                         <button *ngIf="editMode" class="btn btn-success w-100 form-control" (click)="updateOrganizer()" [disabled]="organizerForm.invalid">{{'EDIT' | translate}}</button>
                     </div>
                 </div>

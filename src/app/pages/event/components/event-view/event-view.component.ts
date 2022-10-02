@@ -10,8 +10,10 @@ import { Component, OnInit } from '@angular/core';
 export class EventViewComponent implements OnInit {
   eventId: any;
 
+  // activity empty array
   activity: any = [];
 
+  // images empty array
   images: any = [];
 
   constructor(
@@ -37,6 +39,7 @@ export class EventViewComponent implements OnInit {
   //     });
   // }
 
+  // get activity files
   getActivityImages() {
     this.activityService.getImages(this.eventId).subscribe((res: any) => {
       const data = res.entries;
