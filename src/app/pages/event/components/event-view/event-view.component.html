@@ -5,7 +5,7 @@
             <h6 class="mb-5 key-text">{{'ACTIVITY.END_DATE' | translate}}: <span class="value-text">{{activity[0]?.endDate |
           date}}</span></h6>
             <h6 class="mb-5 key-text">{{'ACTIVITY.CREATOR' | translate}}: <span class="value-text">{{activity[0]?.creator}}</span></h6>
-            <h6 class="mb-5 key-text">{{'ACTIVITY.DESCRIPTION' | translate}}: <span class="value-text">{{activity[0]?.description}}</span></h6>
+            <h6 class="mb-5 key-text">{{'ACTIVITY.DESCRIPTION' | translate}}: <span class="value-text" [innerHtml]="activity[0]?.description"></span></h6>
         </div>
 
         <div class="col-md-3 p-4">

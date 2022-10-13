@@ -4,7 +4,7 @@
     .vip-event-wrapper {
         background-color: lightgray;
         width: calc(300px);
-        height: calc(300px);
+        height: calc(340px);
         border: 1px solid rgb(127, 127, 163) !important;
         border-radius: 7.5px !important;
         .event-cover {
@@ -27,7 +27,7 @@
     .vip-event-wrapper:hover {
         margin-top: -2px;
         width: calc(300px + 3px);
-        height: calc(300px + 2px);
+        height: calc(340px + 2px);
         box-shadow: 10px 10px 5px -2px rgb(0 0 0 / 18%), 10px 7px 10px 1px rgb(170 170 170 / 0%), 0px 12px 26px 2px rgb(0 0 0 / 9%);
     }
 }
