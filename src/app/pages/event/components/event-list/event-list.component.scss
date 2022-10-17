@@ -15,10 +15,7 @@
         .event-data-wraper {
             .title {
                 font-weight: bold;
-            }
-            .start-date {}
-            .end-date {}
-            .category {}
+            }         
         }
         box-shadow: 0px 5px 5px -3px rgb(0 0 0 / 18%),
         0px 8px 10px 1px rgb(170 170 170 / 0%),
@@ -59,16 +56,3 @@
     }
 }
 
-// @media (width: 1180px),
-// (width: 820px) {
-//     .ipadStyle {
-//         @apply w-72;
-//     }
-//     .wrapper {
-//         cts-dynamic-filter {
-//             .aggregation-container {
-//                 @apply w-44 #{!important};
-//             }
-//         }
-//     }
-// }

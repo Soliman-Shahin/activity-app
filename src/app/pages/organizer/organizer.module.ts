@@ -3,7 +3,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { OrganizerRouteingModule } from './organizer-routing-module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { OrganizerComponent } from './organizer.component';
+
 import { OrganizerListComponent } from './components/organizer-list/organizer-list.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
@@ -12,7 +12,7 @@ import { OrganizerAddComponent } from './components/organizer-add/organizer-add.
 
 @NgModule({
   declarations: [
-    OrganizerComponent,
+   
     OrganizerListComponent,
     OrganizerAddComponent,
   ],

@@ -1,19 +1,19 @@
 <!-- set templates fro phones, emails and addresses -->
 <ng-template #phoneItem let-phone="phone">
     <td>
-        <div>{{ phone.label }}: <b>{{ phone.phoneNumber }}</b></div>
+        <div>{{ phone.label }}: <strong>{{ phone.phoneNumber }}</strong></div>
     </td>
 </ng-template>
 
 <ng-template #emailItem let-email="email">
     <td>
-        <div>{{ email.label }}: <b>{{ email.emailAddress}}</b></div>
+        <div>{{ email.label }}: <strong>{{ email.emailAddress}}</strong></div>
     </td>
 </ng-template>
 
 <ng-template #addressItem let-address="address">
     <td>
-        <div>{{ address.label }}: <b>{{ address.address}}</b></div>
+        <div>{{ address.label }}: <strong>{{ address.address}}</strong></div>
     </td>
 </ng-template>
 
@@ -49,20 +49,23 @@
     <div class="row">
         <div class="col-md-12">
 
-            <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+            <table mat-table 
+                   [dataSource]="dataSource"
+                   class="mat-elevation-z8"
+                   aria-label="this table show list of organizers">
 
                 <!--- Note that these columns can be defined in any order.
             The actual rendered columns are set as a property on the row definition" -->
 
                 <!-- title Column -->
                 <ng-container matColumnDef="title">
-                    <th mat-header-cell *matHeaderCellDef> {{'ORGANIZER.TITLE' | translate}} </th>
+                    <th scope="col" mat-header-cell *matHeaderCellDef> {{'ORGANIZER.TITLE' | translate}} </th>
                     <td mat-cell *matCellDef="let element"> {{element.title}} </td>
                 </ng-container>
 
                 <!-- addresses Column -->
                 <ng-container matColumnDef="addresses">
-                    <th mat-header-cell *matHeaderCellDef> {{'ORGANIZER.ADDRESSES' | translate}} </th>
+                    <th scope="col" mat-header-cell *matHeaderCellDef> {{'ORGANIZER.ADDRESSES' | translate}} </th>
                     <td mat-cell *matCellDef="let element">
                         <div *ngFor="let address of element.addresses;let i = index">
                             <p [ngTemplateOutlet]="addressItem" [ngTemplateOutletContext]="{ address : address }"></p>
@@ -72,7 +75,7 @@
 
                 <!-- email Column -->
                 <ng-container matColumnDef="email">
-                    <th mat-header-cell *matHeaderCellDef> {{'ORGANIZER.EMAIL' | translate}} </th>
+                    <th scope="col" mat-header-cell *matHeaderCellDef> {{'ORGANIZER.EMAIL' | translate}} </th>
                     <td mat-cell *matCellDef="let element">
                         <div *ngFor="let email of element.emails;let i = index">
                             <p [ngTemplateOutlet]="emailItem" [ngTemplateOutletContext]="{ email : email }"></p>
@@ -82,7 +85,7 @@
 
                 <!-- phones Column -->
                 <ng-container matColumnDef="phones">
-                    <th mat-header-cell *matHeaderCellDef> {{'ORGANIZER.PHONE_NUMBERS' | translate}} </th>
+                    <th scope="col" mat-header-cell *matHeaderCellDef> {{'ORGANIZER.PHONE_NUMBERS' | translate}} </th>
                     <td mat-cell *matCellDef="let element">
                         <div *ngFor="let phone of element.phones;let i = index">
                             <p [ngTemplateOutlet]="phoneItem" [ngTemplateOutletContext]="{ phone : phone }"></p>
@@ -92,39 +95,38 @@
 
                 <!-- website Column -->
                 <ng-container matColumnDef="website">
-                    <th mat-header-cell *matHeaderCellDef> {{'ORGANIZER.WEBSITE' | translate}} </th>
+                    <th scope="col" mat-header-cell *matHeaderCellDef> {{'ORGANIZER.WEBSITE' | translate}} </th>
                     <td mat-cell *matCellDef="let element"> {{element.website}} </td>
                 </ng-container>
 
                 <!-- activity Column -->
                 <ng-container matColumnDef="activity">
-                    <th mat-header-cell *matHeaderCellDef> {{'ORGANIZER.ORGANIZER_ACTIVITY' | translate}} </th>
+                    <th scope="col" mat-header-cell *matHeaderCellDef> {{'ORGANIZER.ORGANIZER_ACTIVITY' | translate}} </th>
                     <td mat-cell *matCellDef="let element"> {{element.activity}} </td>
                 </ng-container>
 
                 <!-- Update Column -->
                 <ng-container matColumnDef="update">
-                    <th mat-header-cell *matHeaderCellDef> {{'EDIT' | translate}} </th>
+                    <th scope="col" mat-header-cell *matHeaderCellDef> {{'EDIT' | translate}} </th>
                     <td mat-cell *matCellDef="let element">
                         <button mat-icon-button aria-label="update" color="primary" [routerLink]="['/organizer/editOrganizer/', element.id]">
               <mat-icon mat-list-icon>edit</mat-icon>
-            </button>
+         </button>
                     </td>
                     <td mat-footer-cell *matFooterCellDef> </td>
                 </ng-container>
 
                 <!-- Delete Column -->
                 <ng-container matColumnDef="delete">
-                    <th mat-header-cell *matHeaderCellDef> {{'DELETE' | translate}} </th>
+                    <th scope="col" mat-header-cell *matHeaderCellDef> {{'DELETE' | translate}} </th>
                     <td mat-cell *matCellDef="let element">
                         <button style="color: rgb(218, 70, 70);" mat-icon-button aria-label="delete" (click)="deleteOrganizer(element.id)">
               <mat-icon mat-list-icon>delete</mat-icon>
             </button>
                     </td>
                     <td mat-footer-cell *matFooterCellDef> </td>
-                </ng-container>
-
-
+                </ng-container> 
+                          
                 <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
                 <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
             </table>
