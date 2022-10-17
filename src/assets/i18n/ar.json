@@ -41,6 +41,7 @@
         "WEBSITE": "موقع الويب",
         "ORGANIZER_ACTIVITY": "نشاط المنظمة",
         "ADD_ORGANIZER": "اضافة منظمة",
-        "EDIT_ORGANIZER": " تعديل منظمة"
+        "EDIT_ORGANIZER": " تعديل منظمة",
+        "VIEW_ORGANIZERS":"عرض الجهات المنظمة"
     }
 }

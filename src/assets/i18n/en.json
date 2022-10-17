@@ -41,6 +41,7 @@
         "WEBSITE": "Website",
         "ORGANIZER_ACTIVITY": "Activity",
         "ADD_ORGANIZER": "Add Organizer",
-        "EDIT_ORGANIZER": "Update Organizer"
+        "EDIT_ORGANIZER": "Update Organizer",
+        "VIEW_ORGANIZERS":"View Organizers"
     }
 }
