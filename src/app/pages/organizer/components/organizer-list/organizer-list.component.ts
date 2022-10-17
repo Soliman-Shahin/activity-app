@@ -51,18 +51,17 @@ export class OrganizerListComponent implements OnInit {
   getAllOrganizers() {
     this.organizerService.getAllOrganizers().subscribe((res: any) => {
       const data = res.entries;
-      for (let i = 0; i < data.length; i++) {
+      for (let item of data) {
         this.organizers.push({
-          id: data[i].uid,
-          title: data[i].title,
-          addresses: data[i].properties['organizer:addresses'],
-          emails: data[i].properties['organizer:emails'],
-          phones: data[i].properties['organizer:phones'],
-          website: data[i].properties['organizer:website'],
-          activity: data[i].properties['organizer:organizationActivity'],
+          id: item.uid,
+          title: item.title,
+          addresses: item.properties['organizer:addresses'],
+          emails: item.properties['organizer:emails'],
+          phones: item.properties['organizer:phones'],
+          website: item.properties['organizer:website'],
+          activity: item.properties['organizer:organizationActivity'],
         });
       }
-      // console.log(data);
       this.dataSource = this.organizers;
     });
   }

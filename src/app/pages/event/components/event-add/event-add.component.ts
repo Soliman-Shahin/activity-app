@@ -78,10 +78,10 @@ export class EventAddComponent implements OnInit {
   getAllOrganizers() {
     this.organizerService.getAllOrganizers().subscribe((res: any) => {
       const data = res.entries;
-      for (let i = 0; i < data.length; i++) {
+      for (let item of data) {
         this.organizers.push({
-          id: data[i].uid,
-          title: data[i].title,
+          id: item.uid,
+          title: item.title,
         });
       }
     });

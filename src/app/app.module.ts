@@ -16,7 +16,7 @@ import {
   ChangePasswordFormModule,
   LoginFormModule,
 } from './shared/components';
-import { AuthService, ScreenService, AppInfoService } from './shared/services';
+import { ScreenService, AppInfoService } from './shared/services';
 import { UnauthenticatedContentModule } from './unauthenticated-content';
 import { AppRoutingModule } from './app-routing.module';
 
@@ -66,7 +66,6 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     }),
   ],
   providers: [
-    // AuthService,
     {
       provide: APP_INITIALIZER,
       useFactory: initializeKeycloak,

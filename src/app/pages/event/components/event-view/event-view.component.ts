@@ -25,27 +25,18 @@ export class EventViewComponent implements OnInit {
 
   ngOnInit(): void {
     this.getActivity();
-    // this.getActivityDetails();
     this.getActivityImages();
   }
 
-  // get event images
-  // getActivityDetails() {
-  //   this.activityService
-  //     .getActivityDetails(this.eventId)
-  //     .subscribe((res: any) => {
-  //       const data = res.entries;
-  //       console.log(data);
-  //     });
-  // }
+
 
   // get activity files
   getActivityImages() {
     this.activityService.getImages(this.eventId).subscribe((res: any) => {
       const data = res.entries;
-      for (let i = 0; i < data.length; i++) {
+      for (let item of data) {
         this.images.push({
-          image: data[i].properties['file:content'].data,
+          image: item.properties['file:content'].data,
         });
       }
     });

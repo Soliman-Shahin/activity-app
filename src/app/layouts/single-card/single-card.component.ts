@@ -14,7 +14,6 @@ export class SingleCardComponent {
   @Input()
   description!: string;
 
-  constructor() { }
 }
 
 @NgModule({
@@ -23,5 +22,5 @@ export class SingleCardComponent {
   declarations: [ SingleCardComponent ]
 })
 export class SingleCardModule {
-  
+
 }

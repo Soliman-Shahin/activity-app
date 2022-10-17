@@ -32,14 +32,14 @@ export class EventListComponent implements OnInit {
   getActivities() {
     this.activityService.getActivities().subscribe((res: any) => {
       const data = res.entries;
-      for (let i = 0; i < data.length; i++) {
+      for (let item of data) {
         this.activities.push({
-          uid: data[i].uid,
-          title: data[i].title,
-          startDate: data[i].properties['activity:startDate'],
-          endDate: data[i].properties['activity:endDate'],
-          category: data[i].properties['activity:categorization'],
-          cover: data[i].properties['activity:coverPicture']?.data,
+          uid: item.uid,
+          title: item.title,
+          startDate: item.properties['activity:startDate'],
+          endDate: item.properties['activity:endDate'],
+          category: item.properties['activity:categorization'],
+          cover: item.properties['activity:coverPicture']?.data,
         });
       }
     });

@@ -8,7 +8,6 @@ import {
   CreateAccountFormComponent,
   ChangePasswordFormComponent,
 } from './shared/components';
-import { AuthGuardService } from './shared/services';
 import { HomeComponent } from './pages/home/home.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { TasksComponent } from './pages/tasks/tasks.component';

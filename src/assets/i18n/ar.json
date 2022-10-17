@@ -33,6 +33,7 @@
     },
     "ORGANIZER": {
         "ORGANIZERS": "الجهات المنظمة",
+        "ORGANIZERS_TABLE":"جدول الجهات المنظمة",
         "TITLE": "الاسم",
         "DESCRIPTION": "الوصف",
         "ADDRESSES": "العناوين",

@@ -1,6 +1,6 @@
 import { KeycloakService } from 'keycloak-angular';
 import { Component, HostBinding, Inject, Renderer2 } from '@angular/core';
-import { AuthService, ScreenService, AppInfoService } from './shared/services';
+import { ScreenService, AppInfoService } from './shared/services';
 import { DOCUMENT } from '@angular/common';
 import { TranslateService } from '@ngx-translate/core';
 
@@ -17,7 +17,6 @@ export class AppComponent {
   }
 
   constructor(
-    // private authService: AuthService,
     private _keycloakService: KeycloakService,
     private screen: ScreenService,
     public appInfo: AppInfoService,
@@ -48,7 +47,6 @@ export class AppComponent {
 
   // check if user is authenticated by keycloak
   isAuthenticated() {
-    // return this.authService.loggedIn;
     return this._keycloakService.isLoggedIn();
   }
 }

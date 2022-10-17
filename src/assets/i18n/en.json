@@ -33,6 +33,7 @@
     },
     "ORGANIZER": {
         "ORGANIZERS": "Organizers",
+        "ORGANIZERS_TABLE": "Organizers Table",
         "TITLE": "Title",
         "DESCRIPTION": "Description",
         "ADDRESSES": "Addresses",

@@ -1,19 +1,19 @@
 <!-- set templates fro phones, emails and addresses -->
 <ng-template #phoneItem let-phone="phone">
     <td>
-        <div>{{ phone.label }}: <b>{{ phone.phoneNumber }}</b></div>
+        <div>{{ phone.label }}: <strong>{{ phone.phoneNumber }}</strong></div>
     </td>
 </ng-template>
 
 <ng-template #emailItem let-email="email">
     <td>
-        <div>{{ email.label }}: <b>{{ email.emailAddress}}</b></div>
+        <div>{{ email.label }}: <strong>{{ email.emailAddress}}</strong></div>
     </td>
 </ng-template>
 
 <ng-template #addressItem let-address="address">
     <td>
-        <div>{{ address.label }}: <b>{{ address.address}}</b></div>
+        <div>{{ address.label }}: <strong>{{ address.address}}</strong></div>
     </td>
 </ng-template>
 
@@ -50,6 +50,7 @@
         <div class="col-md-12">
 
             <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+              <caption>{{'ORGANIZER.ORGANIZERS_TABLE' | translate}}</caption>
 
                 <!--- Note that these columns can be defined in any order.
             The actual rendered columns are set as a property on the row definition" -->

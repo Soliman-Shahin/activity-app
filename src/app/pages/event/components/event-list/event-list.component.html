@@ -34,8 +34,8 @@
                     <!-- activity card -->
                     <div class="vip-event-wrapper border-accent-500 rounded-md bg-black-50 cursor-pointer relative" [routerLink]="['/event/view/', event.uid]">
 
-                        <img *ngIf="event.cover !== undefined" [src]="event.cover" class="event-cover w-100 h-50 rounded-t-md" />
-                        <img *ngIf="event.cover == undefined" src="http://35.153.66.52/dms/assets/images/Photos/demo1.jpeg" class="event-cover w-100 h-50 rounded-t-md" />
+                        <img *ngIf="event.cover" [src]="event.cover" class="event-cover w-100 h-50 rounded-t-md" alt="activity-image" />
+                        <img *ngIf="!event.cover" src="http://35.153.66.52/dms/assets/images/Photos/demo1.jpeg" alt="activity-image" class="event-cover w-100 h-50 rounded-t-md" />
 
                         <div *ngIf="event.category" class="text-white bg-primary absolute px-3 w-50" style="margin-top: -50px; position: absolute">
                             {{ event.category }}
