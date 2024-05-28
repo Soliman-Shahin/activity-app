@@ -4,17 +4,18 @@ export function initializeKeycloak(keycloak: KeycloakService) {
   return () =>
     keycloak.init({
       // set config at nuxeo server
-      config: {
-        url: 'http://35.153.66.52/auth',
-        realm: 'nuxeo',
-        clientId: 'meeting-web',
-      },
-      // to set config at port 8080
       // config: {
-      //   url: 'http://localhost:8080/auth',
-      //   realm: 'test-app',
-      //   clientId: 'test-app-client',
+      //   url: 'http://35.153.66.52/auth',
+      //   realm: 'nuxeo',
+      //   clientId: 'meeting-web',
       // },
+
+      // to set config at port 8080
+      config: {
+        url: 'https://orchestractc.org/auth',
+        realm: 'jouf',
+        clientId: 'bo-web',
+      },
       initOptions: {
         onLoad: 'check-sso',
         silentCheckSsoRedirectUri:
