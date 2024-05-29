@@ -61,6 +61,7 @@
     "textToSpeech": "text to speech",
     "speechToText": "speech to text",
     "disableAnimations": "disable animations",
-    "hotkeyPrefix": "Hotkey"
+    "hotkeyPrefix": "Hotkey: ",
+    "hideImages": "Hide / Show images"
   }
 }

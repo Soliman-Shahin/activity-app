@@ -1,3 +1,4 @@
+import { AccessibilityService } from './shared/services/accessibility.service';
 import { KeycloakService } from 'keycloak-angular';
 import {
   Component,
@@ -9,8 +10,6 @@ import {
 import { ScreenService, AppInfoService } from './shared/services';
 import { DOCUMENT } from '@angular/common';
 import { TranslateService } from '@ngx-translate/core';
-import { Accessibility } from 'accessibility';
-import { forkJoin } from 'rxjs';
 
 const LANG_AR = 'ar';
 const LANG_EN = 'en';
@@ -28,15 +27,13 @@ export class AppComponent implements OnInit {
       .join(' ');
   }
 
-  private labels: any = {};
-  private options: any = {};
-
   constructor(
     private keycloakService: KeycloakService,
     private screen: ScreenService,
     public appInfo: AppInfoService,
     private renderer: Renderer2,
     private translateService: TranslateService,
+    private accessibilityService: AccessibilityService,
     @Inject(DOCUMENT) private document: Document
   ) {
     this.appInfo.currentLang.subscribe(() => this.updateLanguageSettings());
@@ -44,9 +41,9 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.translateService.onLangChange.subscribe(() =>
-      this.initAccessibility()
+      this.accessibilityService.initAccessibility()
     );
-    this.initAccessibility();
+    this.accessibilityService.initAccessibility();
   }
 
   private updateLanguageSettings() {
@@ -70,76 +67,6 @@ export class AppComponent implements OnInit {
       this.renderer.removeClass(this.document.body, 'dx-rtl');
     }
     this.translateService.setDefaultLang(lang);
-  }
-
-  private async initAccessibility() {
-    const keys = [
-      'resetTitle',
-      'closeTitle',
-      'menuTitle',
-      'increaseText',
-      'decreaseText',
-      'increaseTextSpacing',
-      'decreaseTextSpacing',
-      'increaseLineHeight',
-      'decreaseLineHeight',
-      'invertColors',
-      'grayHues',
-      'underlineLinks',
-      'bigCursor',
-      'readingGuide',
-      'textToSpeech',
-      'speechToText',
-      'disableAnimations',
-      'hotkeyPrefix',
-    ];
-
-    const translations$ = keys.map((key) =>
-      this.translateService.get(`ACCESSIBILITY.${key}`)
-    );
-
-    forkJoin(translations$).subscribe((translations) => {
-      this.labels = {};
-      keys.forEach((key, index) => {
-        this.labels[key] = translations[index];
-      });
-
-      this.options = {
-        labels: this.labels,
-        icon: {
-          position: {
-            bottom: { size: 35, units: 'px' },
-            right: { size: 10, units: 'px' },
-            type: 'absolute',
-          },
-          circular: true,
-          img: 'accessibility',
-        },
-        session: {
-          persistent: true,
-        },
-        textToSpeechLang: 'en-US',
-        speechToTextLang: 'en-US',
-        modules: {
-          decreaseText: true,
-          increaseText: true,
-          invertColors: true,
-          increaseTextSpacing: true,
-          decreaseTextSpacing: true,
-          increaseLineHeight: true,
-          decreaseLineHeight: true,
-          grayHues: true,
-          underlineLinks: true,
-          bigCursor: true,
-          readingGuide: true,
-          textToSpeech: true,
-          speechToText: true,
-          disableAnimations: true,
-        },
-      };
-
-      new Accessibility(this.options);
-    });
   }
 
   isAuthenticated() {

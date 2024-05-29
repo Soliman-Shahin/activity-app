@@ -61,6 +61,7 @@
     "textToSpeech": "تحويل النص إلى كلام",
     "speechToText": "تحويل الكلام إلى نص",
     "disableAnimations": "تعطيل الرسوم المتحركة",
-    "hotkeyPrefix": "مفتاح التشغيل السريع"
+    "hotkeyPrefix": ":مفتاح التشغيل السريع ",
+    "hideImages": "اخفاء / اظهار الصور"
   }
 }
