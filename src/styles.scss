@@ -34,3 +34,22 @@
 
 //   --_access-menu-item-active-icon-color: #000;
 // }
+
+._access-menu._access {
+  left: 0;
+  right: unset;
+}
+
+[dir="rtl"] ._access-menu._access {
+  right: 0;
+  left: unset;
+}
+
+p._text-center {
+  text-align: center !important;
+}
+
+button._menu-close-btn._menu-btn.material-icons,
+button._menu-reset-btn._menu-btn.material-icons {
+  font-family: 'Material Icons' !important;
+}

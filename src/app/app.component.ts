@@ -40,10 +40,10 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.translateService.onLangChange.subscribe(() =>
-      this.accessibilityService.initAccessibility()
-    );
-    this.accessibilityService.initAccessibility();
+    this.accessibilityService.reInitAccessibility();
+    this.translateService.onLangChange.subscribe(() => {
+      this.accessibilityService.reInitAccessibility();
+    });
   }
 
   private updateLanguageSettings() {

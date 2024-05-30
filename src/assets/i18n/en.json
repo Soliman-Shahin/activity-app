@@ -62,6 +62,7 @@
     "speechToText": "speech to text",
     "disableAnimations": "disable animations",
     "hotkeyPrefix": "Hotkey: ",
-    "hideImages": "Hide / Show images"
+    "hideImages": "Hide / Show images",
+    "alignText": "align text"
   }
 }

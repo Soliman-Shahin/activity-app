@@ -62,6 +62,7 @@
     "speechToText": "تحويل الكلام إلى نص",
     "disableAnimations": "تعطيل الرسوم المتحركة",
     "hotkeyPrefix": ":مفتاح التشغيل السريع ",
-    "hideImages": "اخفاء / اظهار الصور"
+    "hideImages": "اخفاء / اظهار الصور",
+    "alignText": "محاذاة النص"
   }
 }
